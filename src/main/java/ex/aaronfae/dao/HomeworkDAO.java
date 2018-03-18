@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public class UploadDAO {
+public class HomeworkDAO {
 
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public UploadDAO(JdbcTemplate jdbcTemplate) {
+    public HomeworkDAO(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
