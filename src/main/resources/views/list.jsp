@@ -49,6 +49,24 @@
             </table>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-condensed">
+                <thead>
+                <tr>
+                    <th>
+                        上传者
+                    </th>
+                    <th>
+                        文件列表
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 </body>
 </html>

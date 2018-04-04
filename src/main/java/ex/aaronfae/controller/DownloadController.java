@@ -22,6 +22,7 @@ public class DownloadController {
             File file = new File(realPath, fileName);
             OutputStream out = null;
             if (file.exists()) {
+                response.setCharacterEncoding("UTF-8");
                 //设置下载完毕不打开文件
                 response.setContentType("application/force-download");
                 //设置文件名
