@@ -42,6 +42,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("bootstrap-3.3.7-dist/**").addResourceLocations("classpath:bootstrap-3.3.7-dist/");
+        registry.addResourceHandler("image/**").addResourceLocations("classpath:image/");
         super.addResourceHandlers(registry);
     }
 
@@ -53,7 +54,6 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
-        registry.addViewController("/index").setViewName("index");
         super.addViewControllers(registry);
     }
 
@@ -65,7 +65,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     @Bean
     public MultipartResolver multipartResolver() {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-        multipartResolver.setMaxUploadSize(2 * 1024 * 1024);
+        multipartResolver.setMaxUploadSize(3 * 1024 * 1024);
         multipartResolver.setDefaultEncoding("UTF-8");
         return multipartResolver;
     }
@@ -105,7 +105,6 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
      */
     @Bean
     public DataSourceTransactionManager transactionManager() {
-        DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(datasource());
-        return transactionManager;
+        return new DataSourceTransactionManager(datasource());
     }
 }

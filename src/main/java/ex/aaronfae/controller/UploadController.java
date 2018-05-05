@@ -27,10 +27,14 @@ public class UploadController {
         //getSize()方法获取文件的大小来判断是否有上传文件
         if (homework.getSize() > 0) {
             //获取保存上传文件的file文件夹绝对路径
-            String path = request.getSession().getServletContext().getRealPath("file");
+            String pathStr = request.getSession().getServletContext().getRealPath("file");
+            File path = new File(pathStr);
             //获取上传文件名
             String fileName = homework.getOriginalFilename();
             File file = new File(path, fileName);
+            if (!path.exists()) {
+                path.mkdir();
+            }
             try {
                 homework.transferTo(file);
             } catch (IOException e) {

@@ -6,7 +6,7 @@
 
     <groupId>ex.aaronfae.up</groupId>
     <artifactId>up-mvc</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.3-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <properties>
@@ -14,6 +14,7 @@
         <spring-version>4.3.12.RELEASE</spring-version>
         <druid.version>1.1.6</druid.version>
         <mysql-connector-java.version>5.1.44</mysql-connector-java.version>
+        <shiro.version>1.4.0</shiro.version>
     </properties>
 
     <dependencies>
@@ -33,6 +34,13 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
             <version>${spring-version}</version>
+        </dependency>
+
+        <!--Shiro-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>1.3.2</version>
         </dependency>
 
         <!-- Druid数据源 -->
@@ -65,5 +73,7 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
+
 </project>
