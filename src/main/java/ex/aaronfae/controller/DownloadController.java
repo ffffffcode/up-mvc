@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 @Controller
 public class DownloadController {
@@ -22,11 +24,16 @@ public class DownloadController {
             File file = new File(realPath, fileName);
             OutputStream out = null;
             if (file.exists()) {
-                response.setCharacterEncoding("UTF-8");
+//                response.setCharacterEncoding("UTF-8");
                 //设置下载完毕不打开文件
-                response.setContentType("application/force-download");
+//                response.setContentType("application/force-download;charset=UTF-8");
+                response.setContentType("application/octet-stream;charset=UTF-8");
                 //设置文件名
-                response.setHeader("Content-Disposition", "attachment;filename=" + fileName);
+                try {
+                    response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(fileName, "UTF-8"));
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
                 try {
                     out = response.getOutputStream();
                     out.write(FileUtils.readFileToByteArray(file));

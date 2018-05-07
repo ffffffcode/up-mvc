@@ -28,6 +28,20 @@ public class RegisterController {
 
     @RequestMapping(value = "/join", method = RequestMethod.POST)
     public String register(String username, String password, RedirectAttributes redirectAttributes) {
+        System.out.println("username:" + username);
+        System.out.println("password:" + password);
+        if (username == null || "".equals(username)) {
+            redirectAttributes.addFlashAttribute("msg", "用户名不能为空");
+            return "redirect:register";
+        }
+        if (password == null || "".equals(password)) {
+            redirectAttributes.addFlashAttribute("msg", "密码不能为空");
+            return "redirect:register";
+        }
+        if (registerService.registered(username)) {
+            redirectAttributes.addFlashAttribute("msg", "用户名已存在");
+            return "redirect:register";
+        }
         String msg = registerService.register(username, password) ? "注册成功，并顺便帮你这傻X登录了^-^" : "^-^注册失败，你是不是傻狗";
         redirectAttributes.addFlashAttribute("msg", msg);
         Subject subject = SecurityUtils.getSubject();

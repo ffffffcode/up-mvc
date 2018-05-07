@@ -36,6 +36,12 @@ public class LoginController {
         System.out.println("password:" + password);
         System.out.println("remember:" + remember);
         ModelAndView modelAndView = new ModelAndView("login");
+        if (username == null || "".equals(username)) {
+            return modelAndView.addObject("msg", "请输入用户名");
+        }
+        if (password == null || "".equals(password)) {
+            return modelAndView.addObject("msg", "请输入密码");
+        }
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(username, password, remember != null);
         try {

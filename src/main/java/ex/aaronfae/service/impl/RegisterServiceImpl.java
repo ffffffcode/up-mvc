@@ -19,4 +19,9 @@ public class RegisterServiceImpl implements RegisterService {
     public Boolean register(String username, String password) {
         return usersDAO.register(username, password) == 1;
     }
+
+    @Override
+    public boolean registered(String username) {
+        return usersDAO.findByUsername(username).size() != 0;
+    }
 }
