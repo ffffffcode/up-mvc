@@ -24,6 +24,10 @@ public class UploadController {
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public String upload(String uper, MultipartFile homework, RedirectAttributes redirectAttributes, HttpServletRequest request) {
+        if (uper == null || "".equals(uper)) {
+            redirectAttributes.addFlashAttribute("msg", "输入你名字，bro");
+            return "redirect:index";
+        }
         //getSize()方法获取文件的大小来判断是否有上传文件
         if (homework.getSize() > 0) {
             //获取保存上传文件的file文件夹绝对路径
