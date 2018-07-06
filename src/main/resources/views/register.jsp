@@ -46,7 +46,7 @@
             <h1>^-^用户注册Up</h1>
             <ol class="breadcrumb">
                 <li><a href="${pageContext.request.contextPath}/">Up</a></li>
-                <li><a href="${pageContext.request.contextPath}/list">文件列表</a></li>
+                <li><a href="${pageContext.request.contextPath}/listWithPaging">文件列表</a></li>
             </ol>
         </div>
     </div>
