@@ -56,14 +56,14 @@
                 <div class="form-group">
                     <label for="inputUsername" class="col-sm-2 control-label">用户名</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="inputUsername" placeholder="请输入你tm的用户名"
+                        <input type="text" class="form-control" id="inputUsername" placeholder="请输入您的用户名"
                                name="username">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="col-sm-2 control-label">密码</label>
                     <div class="col-sm-4">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="还有不可告人的密码"
+                        <input type="password" class="form-control" id="inputPassword" placeholder="请输入您的密码"
                                name="password">
                     </div>
                 </div>

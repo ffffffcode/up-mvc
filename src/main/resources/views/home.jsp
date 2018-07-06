@@ -61,7 +61,7 @@
     <div class="row">
         <div class="col-md-8">
             回家等等下个版本吧
-        </div>
+    </div>
     </div>
 </div>
 </body>
