@@ -1,5 +1,7 @@
 package ex.aaronfae.dao;
 
+import ex.aaronfae.util.PageParam;
+import ex.aaronfae.util.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -22,6 +24,14 @@ public class HomeworkDAO {
     }
 
     public List<Map<String, Object>> list() {
-        return jdbcTemplate.queryForList("SELECT * FROM up");
+        return jdbcTemplate.queryForList("SELECT id, uper, filename FROM up");
+    }
+
+    public Pagination listWithPaging(int page) {
+        String sql = "SELECT id, uper, filename FROM up";
+        PageParam pageParam = new PageParam();
+        pageParam.setPage(page);
+        Pagination pagination = new Pagination(sql, null, pageParam, jdbcTemplate);
+        return pagination;
     }
 }

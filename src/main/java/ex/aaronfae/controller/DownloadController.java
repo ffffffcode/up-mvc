@@ -3,6 +3,7 @@ package ex.aaronfae.controller;
 import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +16,7 @@ import java.net.URLEncoder;
 @Controller
 public class DownloadController {
 
-    @RequestMapping("/download")
+    @RequestMapping(value = "/download", method = RequestMethod.GET)
     public void downloadFile(String fileName, HttpServletRequest request,
                              HttpServletResponse response) {
         if (fileName != null) {

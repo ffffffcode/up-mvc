@@ -2,6 +2,7 @@ package ex.aaronfae.service.impl;
 
 import ex.aaronfae.dao.HomeworkDAO;
 import ex.aaronfae.service.ListService;
+import ex.aaronfae.util.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,10 @@ public class ListServiceImpl implements ListService {
     @Override
     public List<Map<String, Object>> list() {
         return homeworkDAO.list();
+    }
+
+    @Override
+    public Pagination listWithPaging(int page) {
+        return homeworkDAO.listWithPaging(page);
     }
 }
