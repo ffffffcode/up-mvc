@@ -14,6 +14,7 @@ public class WebInitializer implements WebApplicationInitializer {
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
+        servletContext.addListener(IntrospectorCleanupListener.class);
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.register(ShiroConfig.class);
         context.register(MvcConfig.class);
