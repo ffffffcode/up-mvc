@@ -2,28 +2,27 @@ package ex.aaronfae.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.realm.Realm;
 import org.apache.shiro.realm.jdbc.JdbcRealm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 
+import javax.sql.DataSource;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 
 public class ShiroConfig {
 
-    @Autowired
-    private DruidDataSource dataSource;
-
     @Bean
-    public SecurityManager securityManager() {
-        return new DefaultWebSecurityManager(realm());
+    public SecurityManager securityManager(Realm realm) {
+        return new DefaultWebSecurityManager(realm);
     }
 
     @Bean
-    public JdbcRealm realm() {
+    public JdbcRealm realm(DataSource dataSource) {
         JdbcRealm realm = new JdbcRealm();
         realm.setDataSource(dataSource);
         return realm;
