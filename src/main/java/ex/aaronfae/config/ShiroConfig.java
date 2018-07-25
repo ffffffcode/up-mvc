@@ -1,5 +1,6 @@
 package ex.aaronfae.config;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.realm.jdbc.JdbcRealm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -14,7 +15,7 @@ import java.util.Map;
 public class ShiroConfig {
 
     @Autowired
-    private MvcConfig mvcConfig;
+    private DruidDataSource dataSource;
 
     @Bean
     public SecurityManager securityManager() {
@@ -24,7 +25,7 @@ public class ShiroConfig {
     @Bean
     public JdbcRealm realm() {
         JdbcRealm realm = new JdbcRealm();
-        realm.setDataSource(mvcConfig.datasource());
+        realm.setDataSource(dataSource);
         return realm;
     }
 
